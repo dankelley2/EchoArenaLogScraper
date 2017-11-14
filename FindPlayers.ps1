@@ -6,7 +6,6 @@ $FolderBrowser = New-Object System.Windows.Forms.FolderBrowserDialog
 [void]$FolderBrowser.ShowDialog()
 $LogDirectory = $FolderBrowser.SelectedPath
 
-$LogDirectory = "$PSScriptRoot\LOGS";
 $Logs = gci -Path $LogDirectory -Filter "*.log" | Select Name -ExpandProperty "Name";
 $NameMatch = [Regex]::new("^\[(\d{1,2})-(\d{1,2})-(\d{4})\]\s\[(\d{1,2}):(\d{1,2}):(\d{1,2})\].*?\[NETGAME\]:\s{2}Name\s+?:\s(.+)$");
 
